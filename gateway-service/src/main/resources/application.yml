@@ -1,0 +1,28 @@
+eureka:
+    instance:
+        instance-id: ${spring.application.name}:${random.uuid}
+spring:
+    application:
+        name: gateway-service
+        zipkin: http://localhost:9411
+    cloud:
+        gateway:
+            discovery:
+                locator:
+                    enabled: true
+            routes:
+            -   id: product-microservice
+                predicates:
+                - Path=/api/products/**,/api/categories/**
+                uri: lb://PRODUCT-MICROSERVICE
+            -   id: booking-microservice
+                predicates:
+                - Path=/api/booking/**
+                uri: lb://BOOKING-MICROSERVICE
+            -   id: stock-microservice
+                predicates:
+                - Path=/api/stock/**
+                uri: lb://STOCK-MICROSERVICE
+        loadbalancer:
+            ribbon:
+                enabled: false
