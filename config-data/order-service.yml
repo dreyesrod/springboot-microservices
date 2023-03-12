@@ -1,0 +1,37 @@
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+resilience4j:
+  circuitbreaker:
+    instances:
+      orderCB:
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 4
+        permittedNumberOfCallsInHalfOpenState: 3
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        slidingWindowType: TIME_BASED
+        waitDurationInOpenState: 5s
+server:
+  port: 0
+spring:
+  cloud:
+    vault:
+      application-name: ${spring.application.name}
+      authentication: TOKEN
+      host: localhost
+      port: 8200
+      scheme: http
+      token: hvs.c1mHXlUH13fC5YousBT78MZI
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect

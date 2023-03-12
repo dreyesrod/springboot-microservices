@@ -19,9 +19,9 @@
         <module>discovery-service</module>
         <module>auth-service</module>
         <module>gateway-service</module>
-        <module>booking-microservice</module>
-        <module>product-microservice</module>
-        <module>stock-microservice</module>
+        <module>order-service</module>
+        <module>product-service</module>
+        <module>stock-service</module>
     </modules>
 
     <name>${project.groupId}.${project.artifactId}</name>

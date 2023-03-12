@@ -1,0 +1,4 @@
+product:
+  property: Product Service Profile Dev
+app:
+  testProp: Property of test Updated for Bus and Message Broker

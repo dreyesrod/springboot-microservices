@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: stock-service
+  cloud:
+    config:
+      profile: dev
+      uri: http://localhost:8888
