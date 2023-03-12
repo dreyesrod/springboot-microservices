@@ -11,7 +11,7 @@ import es.dreyesr.stockservice.entity.StockEntity;
 import es.dreyesr.stockservice.repository.StockRepository;
 
 @RestController
-@RequestMapping("/api/stock")
+@RequestMapping("/api/stocks")
 public class StockController {
 
     @Autowired

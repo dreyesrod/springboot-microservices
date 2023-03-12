@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @FeignClient(name = "stock-service")
 public interface StockClient {
 
-    @RequestMapping("/api/stock/{code}")
+    @RequestMapping("/api/stocks/{code}")
     boolean stockAvailable(@PathVariable String code);
 }
