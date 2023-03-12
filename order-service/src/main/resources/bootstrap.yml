@@ -5,3 +5,10 @@ spring:
     config:
       profile: dev
       uri: http://localhost:8888
+    vault:
+      application-name: ${spring.application.name}
+      authentication: TOKEN
+      host: localhost
+      port: 8200
+      scheme: http
+      token: hvs.c1mHXlUH13fC5YousBT78MZI

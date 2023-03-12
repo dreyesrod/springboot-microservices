@@ -11,14 +11,6 @@ server:
 spring:
 #  application:
 #    zipkin: http://localhost:9411
-  cloud:
-    vault:
-      application-name: product-microservice
-      authentication: TOKEN
-      host: localhost
-      port: 8200
-      scheme: http
-      token: hvs.c1mHXlUH13fC5YousBT78MZI
 #  security:
 #    oauth2:
 #      resourceserver:

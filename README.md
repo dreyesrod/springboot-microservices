@@ -22,9 +22,9 @@ http://localhost:8761/
 docker run -it --name vault -p 8200:8200 --cap-add=IPC_LOCK -e VAULT_DEV_ROOT_TOKEN_ID=00000000-0000-0000-0000-000000000000 -e VAULT_DEV_LISTEN_ADDRESS=0.0.0.0:8200 -v D:\volumes\vault:/data vault:1.12.3
 
 -- vault server --dev --dev-root-token-id="00000000-0000-0000-0000-000000000000"
-vault kv put secret/booking-microservice @booking-microservice.json
-vault kv put secret/product-microservice @product-microservice.json
-vault kv put secret/stock-microservice @stock-microservice.json
+vault kv put secret/order-service @order-service.json
+vault kv put secret/product-service @product-service.json
+vault kv put secret/stock-service @stock-service.json
 
 http://127.0.0.1:8200
 ```
