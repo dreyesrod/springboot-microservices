@@ -5,12 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class AuthenticationRequest {
+public class RequestDto {
 
-  private String email;
-  String password;
+    private String uri;
+    private String method;
 }

@@ -45,3 +45,4 @@ docker run -it --name keycloak -p 9090:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_
 - Actualizar versiones de todo
 - Enable Security with keycloak and spring boot 3
 - Enable Trazing with open telemetry and spring boot 3
+- TODO routeValidation

@@ -15,14 +15,20 @@ spring:
           predicates:
             - Path=/api/products/**,/api/categories/**
           uri: lb://PRODUCT-SERVICE
+          filters:
+            - AuthFilter
         - id: order-service
           predicates:
             - Path=/api/orders/**
           uri: lb://ORDER-SERVICE
+          filters:
+            - AuthFilter
         - id: stock-service
           predicates:
             - Path=/api/stocks/**
           uri: lb://STOCK-SERVICE
+          filters:
+            - AuthFilter
         - id: auth-service
           predicates:
               - Path=/api/v1/auth/**
