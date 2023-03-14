@@ -7,12 +7,9 @@ import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.reactive.function.server.ServerResponse;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
@@ -42,10 +39,14 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> 
                     .bodyValue(new RequestDto(exchange.getRequest().getPath().toString(), exchange.getRequest().getMethod().toString()))
                     .retrieve()
                     .bodyToMono(TokenDto.class)
-                    .map(t -> {
-                        t.getToken();
+                    .map(tokenDto -> {
+                        tokenDto.getToken();
                         return exchange;
-                    }).flatMap(chain::filter);
+                    })
+                    .flatMap(chain::filter)
+                    .onErrorResume(error -> {
+                        return onError(exchange, HttpStatus.FORBIDDEN);
+                    });
         });
     }
 
