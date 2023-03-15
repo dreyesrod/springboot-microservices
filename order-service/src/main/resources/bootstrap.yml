@@ -1,3 +1,13 @@
+logging:
+  pattern:
+    console: "%clr(%d{HH:mm:ss.SSS}){blue} %clr(%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]){yellow} %clr(:){red} %clr(%m){faint}%n"
+#    file: "{\"timestamp\":\"%d{HH:mm:ss.SSS}\",\"level\":\"%p\",\"traceId\":\"%X{traceId:-}\",\"spanId\":\"%X{spanId:-}\",\"appName\":\"${spring.application.name}\",\"message\":\"%m\"}%n"
+#  file:
+#    path: ${HOME}/${spring.application.name}-${server.port}
+management:
+  endpoints.web.exposure.include: '*'
+  metrics.distribution.percentiles-histogram.http.server.requests: true
+  tracing.sampling.probability: 1.0
 spring:
   application:
     name: order-service
